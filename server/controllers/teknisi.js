@@ -1,12 +1,12 @@
 "use strict";
 
-const { Role } = require("../models");
+const { Teknisi } = require("../models");
 
-class RoleController {
+class TeknisiController {
   static async getAll(req, res, next) {
     try {
-      const allRole = await Role.findAll();
-      res.status(200).json(allRole);
+      const allTeknisi = await Teknisi.findAll();
+      res.status(200).json(allTeknisi);
     } catch (err) {
       next(err);
     }
@@ -14,11 +14,11 @@ class RoleController {
   static async getOne(req, res, next) {
     try {
       const { id } = req.params;
-      const oneRole = await Role.findOne({ where: { id } });
-      if (!oneRole) {
+      const oneTeknisi = await Teknisi.findOne({ where: { id } });
+      if (!oneTeknisi) {
         throw { status: 400, message: "data not exist" };
       }
-      res.status(200).json(oneRole);
+      res.status(200).json(oneTeknisi);
     } catch (err) {
       next(err);
     }
@@ -26,10 +26,10 @@ class RoleController {
   static async post(req, res, next) {
     try {
       const { name } = req.body;
-      const addRole = await Role.create({
+      const addTeknisi = await Teknisi.create({
         name,
       });
-      res.status(201).json(addRole);
+      res.status(201).json(addTeknisi);
     } catch (err) {
       next(err);
     }
@@ -38,7 +38,7 @@ class RoleController {
     try {
       const { id } = req.params;
       const { name } = req.body;
-      const editRole = await Role.update(
+      const editTeknisi = await Teknisi.update(
         {
           name,
         },
@@ -49,8 +49,8 @@ class RoleController {
           returning: true,
         }
       );
-      if (editRole[0] === 1) {
-        res.status(200).json(editRole[1][0]);
+      if (editTeknisi[0] === 1) {
+        res.status(200).json(editTeknisi[1][0]);
       }
     } catch (err) {
       next(err);
@@ -59,12 +59,12 @@ class RoleController {
   static async destroy(req, res, next) {
     try {
       const { id } = req.params;
-      const deleteRole = await Role.destroy({ where: { id } });
-      res.status(200).json(deleteRole);
+      const deleteTeknisi = await Teknisi.destroy({ where: { id } });
+      res.status(200).json(deleteTeknisi);
     } catch (err) {
       next(err);
     }
   }
 }
 
-module.exports = RoleController;
+module.exports = TeknisiController;

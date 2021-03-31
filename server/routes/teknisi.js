@@ -1,6 +1,6 @@
 "use strict";
 const router = require("express").Router();
-const Controller = require("../controllers/user");
+const Controller = require("../controllers/teknisi");
 
 router.get("/", Controller.getAll);
 router.get("/:id", Controller.getOne);

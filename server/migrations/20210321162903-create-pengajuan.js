@@ -1,48 +1,64 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Pengajuans', {
+    await queryInterface.createTable("Pengajuans", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       UserId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       tanggalPengajuan: {
-        type: Sequelize.DATE
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+        type: Sequelize.DATEONLY,
       },
       namaBarang: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       alasanKerusakan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       ruangLingkupKerja: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       diajukanOleh: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       diketahuiOleh: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       TeknisiId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Pengajuans');
-  }
+    await queryInterface.dropTable("Pengajuans");
+  },
 };

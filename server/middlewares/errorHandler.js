@@ -1,22 +1,32 @@
-  function errorHandler(err, req, res, next) {
-    // console.log('Error:', err)
-    // let status, error = ''
+"use strict";
 
-    if (err.name === "SequelizeValidationError") {
-      status = 400;
-      error = err.errors[0];
-    } else if (err.name === "SequelizeDatabaseError") {
-      status = 400;
-      error = { message: "Please enter the right information!" };
-    } else if (err.name === "JsonWebTokenError") {
-      status = 400;
-      error = { message: "You need to login first!" };
-    } else {
-      if (err.status) status = err.status;
-      else status = 500;
-      error = err;
-    }
-    res.status(status).json(error);
+module.exports = (err, _, res, next) => {
+  console.log(err);
+  let message = [];
+  if (err.name === "SequelizeValidationError") {
+    err.errors.forEach((element) => {
+      message.push(element.message);
+    });
+    res.status(400).json({ status: 400, message });
+  } else if (err.name === "SequelizeUniqueConstraintError") {
+    err.errors.forEach((element) => {
+      message.push(element.message);
+    });
+    res.status(400).json({ message });
+  } else if (err.name === "SequelizeDatabaseError") {
+    res.status(400).json({
+      status: 400,
+      message: "Data Inputan salah",
+    });
+  } else if (err.status === 400) {
+    res.status(err.status).json(err);
+  } else if (err.status === 404) {
+    res.status(err.status).json(err);
+  } else if (err.name === "Token Error") {
+    res.status(400).json({ status: 400, message: "Invalid Token" });
+  } else if (err.status === 401) {
+    res.status(401).json({ status: 401, message: err.message });
+  } else {
+    res.status(500).json({ status: 500, message: "Internal Server Error" });
   }
-
-  module.exports = errorHandler;
+};

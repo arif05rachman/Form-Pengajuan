@@ -1,39 +1,51 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Pemeriksaans', {
+    await queryInterface.createTable("Pemeriksaans", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       PengajuanId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       tanggalPemeriksaan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.DATEONLY,
       },
       waktuPemeriksaan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       namaPemeriksa: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       keterangan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       disetujuiOleh: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

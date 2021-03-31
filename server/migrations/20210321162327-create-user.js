@@ -1,48 +1,67 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       RoleId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       nip: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       username: {
-        type: Sequelize.STRING
+        unique: true,
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        unique: true,
+        isEmail: true,
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       password: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       jabatan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       TeknisiId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
-  }
+    await queryInterface.dropTable("Users");
+  },
 };

@@ -13,18 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Pengajuan.init({
-    UserId: DataTypes.INTEGER,
-    tanggalPengajuan: DataTypes.DATE,
-    namaBarang: DataTypes.STRING,
-    alasanKerusakan: DataTypes.STRING,
-    ruangLingkupKerja: DataTypes.STRING,
-    diajukanOleh: DataTypes.STRING,
-    diketahuiOleh: DataTypes.STRING,
-    TeknisiId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Pengajuan',
-  });
+  Pengajuan.init(
+    {
+      UserId: DataTypes.INTEGER,
+      tanggalPengajuan: DataTypes.DATEONLY,
+      namaBarang: DataTypes.STRING,
+      alasanKerusakan: DataTypes.STRING,
+      ruangLingkupKerja: DataTypes.STRING,
+      diajukanOleh: DataTypes.STRING,
+      diketahuiOleh: DataTypes.STRING,
+      TeknisiId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Pengajuan",
+    }
+  );
   return Pengajuan;
 };

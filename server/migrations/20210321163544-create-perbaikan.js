@@ -1,39 +1,49 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Perbaikans', {
+    await queryInterface.createTable("Perbaikans", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       PemeriksaanId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.INTEGER,
       },
       tanggalPerbaikan: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.DATEONLY,
       },
       dikerjakanOleh: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       keteranganPerbaikan: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.TEXT,
       },
       diketahuiOleh: {
-        type: Sequelize.STRING
+        allowNull: false,
+        notEmpty: true,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Perbaikans');
-  }
+    await queryInterface.dropTable("Perbaikans");
+  },
 };

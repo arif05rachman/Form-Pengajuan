@@ -13,16 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Pemeriksaan.init({
-    PengajuanId: DataTypes.INTEGER,
-    tanggalPemeriksaan: DataTypes.STRING,
-    waktuPemeriksaan: DataTypes.STRING,
-    namaPemeriksa: DataTypes.STRING,
-    keterangan: DataTypes.STRING,
-    disetujuiOleh: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Pemeriksaan',
-  });
+  Pemeriksaan.init(
+    {
+      PengajuanId: DataTypes.INTEGER,
+      tanggalPemeriksaan: DataTypes.DATEONLY,
+      waktuPemeriksaan: DataTypes.STRING,
+      namaPemeriksa: DataTypes.STRING,
+      keterangan: DataTypes.STRING,
+      disetujuiOleh: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Pemeriksaan",
+    }
+  );
   return Pemeriksaan;
 };
