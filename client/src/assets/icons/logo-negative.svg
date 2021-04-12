@@ -1,0 +1,13 @@
+<svg width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="34" height="22" id="canvas_background" fill="none"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <path fill="#ffffff" d="m10.50778,7.00268l-3.75,-2.166c-0.164,-0.096 -0.363,-0.154 -0.576,-0.154s-0.412,0.059 -0.582,0.158l0.004,-0.004l-3.75,2.166c-0.346,0.203 -0.574,0.574 -0.576,0.998l0,4.33c0,0.426 0.23,0.797 0.572,0.996l0.004,0.004l3.75,2.164c0.166,0.098 0.365,0.156 0.578,0.156s0.412,-0.059 0.582,-0.158l-0.006,0.002l3.75,-2.164c0.348,-0.203 0.576,-0.574 0.578,-1l0,-4.328c-0.002,-0.426 -0.23,-0.797 -0.572,-0.998l-0.006,-0.002zm-0.191,5.328c0,0.143 -0.076,0.266 -0.191,0.332l-0.002,0.002l-3.75,2.164c-0.055,0.033 -0.121,0.053 -0.191,0.053c-0.072,0 -0.139,-0.02 -0.195,-0.053l0.002,0l-3.75,-2.164c-0.115,-0.068 -0.191,-0.191 -0.191,-0.334l0,-4.328c0,-0.143 0.076,-0.266 0.189,-0.332l0.002,-0.002l3.75,-2.164c0.055,-0.033 0.121,-0.053 0.193,-0.053c0.07,0 0.137,0.02 0.193,0.053l-0.002,0l3.75,2.164c0.117,0.068 0.193,0.191 0.193,0.334l0,4.328z" id="svg_1" transform="rotate(-90 6.181777000427247,10.166677474975586) "/>
+  <text fill="#ffffff" stroke="null" stroke-width="0" stroke-opacity="null" x="13.1271" y="12.40412" id="svg_18" font-size="6" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" font-weight="normal" font-style="normal">STIABI</text>
+  <text fill="#ffffff" stroke="null" stroke-width="0" stroke-opacity="null" x="3.99468" y="13.22604" id="svg_19" font-size="8" font-family="'Rounded Mplus 1c'" text-anchor="start" xml:space="preserve" stroke-dasharray="5,2,2,2" font-weight="normal" font-style="normal">S</text>
+ </g>
+</svg>

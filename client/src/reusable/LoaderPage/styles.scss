@@ -1,0 +1,19 @@
+.a-loader-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+    background-color: rgba(197, 209, 216, 0.6);
+    user-select: none;
+    img {
+      position: absolute;
+      width: 180px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+    }
+  }
