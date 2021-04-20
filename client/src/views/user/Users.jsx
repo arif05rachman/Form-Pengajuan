@@ -1,4 +1,6 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "src/store/actions/user";
 import {
   CBadge,
   CButton,
@@ -11,10 +13,33 @@ import {
   CProgress,
   CRow,
   CCallout,
+  CDataTable,
+  CSpinner,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
+import moment from "moment";
+import {getUser} from 'src/store/actions/user'
+const fields = [
+  "id",
+  "nip",
+  "name",
+  "username",
+  "email",
+  "jabatan",
+  "role",
+  "createdAt",
+];
+const Users = () => {
+  const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.userReducer.users);
+  const handleClickRow = (id) => {
+    console.log(id);
+    dispatch(getUser(id))
+  };
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
 
-const Dashboard = () => {
   return (
     <>
       <CCard>
@@ -26,30 +51,33 @@ const Dashboard = () => {
               </h4>
               <div className="small text-muted">To manage users</div>
             </CCol>
-            {/* <CCol sm="7" className="d-none d-md-block">
-              <CButton color="primary" className="float-right">
-                <CIcon name="cil-cloud-download" />
-              </CButton>
-              <CButtonGroup className="float-right mr-3">
-                {["Day", "Month", "Year"].map((value) => (
-                  <CButton
-                    color="outline-secondary"
-                    key={value}
-                    className="mx-0"
-                    active={value === "Month"}
-                  >
-                    {value}
-                  </CButton>
-                ))}
-              </CButtonGroup>
-            </CCol> */}
           </CRow>
         </CCardHeader>
-        <CCardBody></CCardBody>
+        <CCardBody>
+          <CDataTable
+            items={usersData}
+            fields={fields}
+            striped
+            itemsPerPageSelect
+            itemsPerPage={5}
+            hover
+            sorter
+            pagination
+            clickableRows
+            tableFilter
+            onRowClick={(item) => handleClickRow(item.id)}
+            scopedSlots={{
+              createdAt: (item) => (
+                <td>{moment(item.createdAt).format("L")}</td>
+              ),
+              role: (item) => <td>{item.Role.name}</td>,
+            }}
+          />
+        </CCardBody>
         <CCardFooter></CCardFooter>
       </CCard>
     </>
   );
 };
 
-export default Dashboard;
+export default Users;

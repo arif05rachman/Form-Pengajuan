@@ -24,9 +24,7 @@ export const actionLogin = (loginData) => {
       dispatch({
         type: GET_TOKEN,
         payload: {
-          data: {
-            data,
-          },
+          data,
         },
       });
       dispatch(setLoading(false));

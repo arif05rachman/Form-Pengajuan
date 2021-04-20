@@ -1,7 +1,7 @@
 import { GET_TOKEN } from "../actions/action_types";
 
 const defaultState = {
-  login: {},
+  token: {},
 };
 
 const authReducer = (state = defaultState, action) => {

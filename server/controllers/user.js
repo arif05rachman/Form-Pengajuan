@@ -1,11 +1,13 @@
 "use strict";
 
-const { User } = require("../models");
+const { User, Role } = require("../models");
 
 class UserController {
   static async getAll(req, res, next) {
     try {
-      const allUser = await User.findAll();
+      const allUser = await User.findAll({
+        include: {model:Role}
+      });
       res.status(200).json(allUser);
     } catch (err) {
       next(err);

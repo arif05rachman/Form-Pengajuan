@@ -12,6 +12,7 @@ import {
   CLink,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
+import { freeSet } from "@coreui/icons";
 
 // routes config
 import routes from "../routes";
